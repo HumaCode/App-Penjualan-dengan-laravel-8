@@ -83,7 +83,9 @@
                     Jumlah Data : {{ $produks->total() }} <br/>
                     Data Per Halaman : {{ $produks->perPage() }} <br/>
 
-                    {{ $produks->links() }}
+                    <div class="text-center">
+                        {{ $produks->links() }}
+                    </div>
                 </div>
             </div>
         </div>

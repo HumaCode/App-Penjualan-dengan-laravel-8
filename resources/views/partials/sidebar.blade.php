@@ -26,11 +26,18 @@
                     <p>Kategori</p>
                 </a>
             </li>
+
+            <li class="">
+                <a href="#">
+                    <i class="pe-7s-user"></i>
+                    <p>Pelanggan</p>
+                </a>
+            </li>
             
 
 
             <li class="active-pro">
-                <a href="upgrade.html">
+                <a href="/dashboard/profile/{{ auth()->user()->id }}">
                     <i class="pe-7s-user"></i>
                     <p>Profile Saya</p>
                 </a>

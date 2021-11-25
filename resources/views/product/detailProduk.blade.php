@@ -28,5 +28,6 @@
                     </li>
                 </ul>
             </div>
+            <a href="/product" class="btn btn-danger pull-right">Kembali</a>
     </div>
 @endsection

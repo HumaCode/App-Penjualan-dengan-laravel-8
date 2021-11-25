@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 // route login
@@ -33,6 +33,8 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 // route Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/profile/{id}', [DashboardController::class, 'profile'])->middleware('auth');
+
 
 // route produk
 Route::resource('/product', ProductController::class)->middleware('auth');

@@ -25,7 +25,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Selamat datang {{ auth()->user()->nama }} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"> Profil Saya</a></li>
+                        <li><a href="/dashboard/profile/{{ auth()->user()->id }}"> Profil Saya</a></li>
                         <li role="separator" class="divider"></li>
                         <li>
                             <form action="/logout" method="POST">
