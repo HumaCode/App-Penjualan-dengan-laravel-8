@@ -27,8 +27,8 @@
                 </a>
             </li>
 
-            <li class="">
-                <a href="#">
+            <li class="{{ Request::is('pelanggan*') ? 'active' : '' }}">
+                <a href="/pelanggan">
                     <i class="pe-7s-user"></i>
                     <p>Pelanggan</p>
                 </a>

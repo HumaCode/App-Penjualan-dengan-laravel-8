@@ -1,9 +1,3 @@
-{{-- panggil layoutnya --}}
-@extends('layouts.main')
-
-{{-- buat section nya --}}
-@section('container')
-    
     {{-- panggil layoutnya --}}
 @extends('layouts.main')
 

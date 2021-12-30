@@ -54,6 +54,7 @@
 
     <div class="container">
         <h1>Selamat datang di aplikasi Penjualan</h1>
+        <p>Kelompok 2</p>
     </div>
 
 

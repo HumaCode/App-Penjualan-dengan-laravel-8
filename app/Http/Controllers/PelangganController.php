@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Pelanggan;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class PelangganController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('category.index', [
-            'title' => 'Kategori',
-            'icon' => 'pe-7s-note2',
-            'categories' => Category::latest()->get()
+        return view('pelanggan.index', [
+            'title' => 'Pelanggan',
+            'icon' => 'pe-7s-user',
+            'pelanggan' => Pelanggan::latest()->get()
         ]);
     }
 
@@ -28,9 +28,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create', [
-            'title' => 'Tambah Kategori',
-            'icon' => 'pe-7s-note2'
+        return view('pelanggan.create', [
+            'title' => 'Tambah Pelanggan',
+            'icon' => 'pe-7s-user'
         ]);
     }
 
@@ -44,14 +44,16 @@ class CategoryController extends Controller
     {
         // validasi form
         $val =  $request->validate([
-            'nama' => 'required|max:255'
+            'nama_pelanggan' => 'required',
+            'alamat' => 'required',
+            'tlp' => 'required'
         ]);
 
         // insert datanya dengan cara berikut
-        Category::create($val);
+        Pelanggan::create($val);
 
-        // jika berhasil arahkan ke halaman kategori dan kirimkan juga pesan suksesnya
-        return redirect('/category')->with('success', 'ditambahkan');
+        // jika berhasil arahkan ke halaman pelanggan dan kirimkan juga pesan suksesnya
+        return redirect('/pelanggan')->with('success', 'ditambahkan');
     }
 
     /**
@@ -62,7 +64,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        // 
+        //
     }
 
     /**
@@ -71,13 +73,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Pelanggan $pelanggan)
     {
-        // mencari data di dalam model produk yang methodnya find dan kirim data nya, berdasarkan slug
-        return view('category.edit', [
-            'title' => 'Edit Kategori',
-            'icon' => 'pe-7s-box1',
-            'category' => $category
+        return view('pelanggan.edit', [
+            'title' => 'Edit Pelanggan',
+            'icon' => 'pe-7s-user',
+            'pelanggan' => $pelanggan,
         ]);
     }
 
@@ -88,19 +89,20 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Pelanggan $pelanggan)
     {
-        // validasi form
         $val =  $request->validate([
-            'nama' => 'required|max:255'
+            'nama_pelanggan' => 'required',
+            'alamat' => 'required',
+            'tlp' => 'required'
         ]);
 
         // insert datanya dengan cara berikut
-        Category::where('id', $category->id)
+        Pelanggan::where('id', $pelanggan->id)
             ->update($val);
 
-        // jika berhasil arahkan ke halaman kategori dan kirimkan juga pesan suksesnya
-        return redirect('/category')->with('success', 'diubah');
+        // jika berhasil arahkan ke halaman posts dan kirimkan juga pesan suksesnya
+        return redirect('/pelanggan')->with('success', 'diubah');
     }
 
     /**
@@ -109,12 +111,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Pelanggan $pelanggan)
     {
         // hapus datanya dengan cara berikut
-        Category::destroy($category->id);
+        Pelanggan::destroy($pelanggan->id);
 
         // jika berhasil arahkan ke halaman posts dan kirimkan juga pesan suksesnya
-        return redirect('/category')->with('success', 'dihapus');
+        return redirect('/pelanggan')->with('success', 'dihapus');
     }
 }

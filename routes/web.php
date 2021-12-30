@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -41,3 +42,11 @@ Route::resource('/product', ProductController::class)->middleware('auth');
 
 // route kategory
 Route::resource('/category', CategoryController::class)->middleware('auth');
+
+// route pelanggan
+Route::resource('/pelanggan', PelangganController::class)->middleware('auth');
+
+// Route::get('/pelanggan', [PelangganController::class, 'index'])->middleware('auth');
+// Route::get('/pelanggan/create', [PelangganController::class, 'create'])->middleware('auth');
+// Route::post('/pelanggan/store', [PelangganController::class, 'store'])->middleware('auth');
+// Route::get('/pelanggan/{id}/edit', [PelangganController::class, 'edit'])->middleware('auth');
